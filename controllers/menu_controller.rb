@@ -15,6 +15,7 @@ class MenuController
     puts "4 - Import entries from a CSV"
     puts "5 - Exit"
     puts "6 - View Entry Number n"
+    puts "7 - Nuke all entries"
     print "Enter your selection: "
 
     selection = gets.to_i
@@ -45,6 +46,11 @@ class MenuController
 
       # call view_entry_by
       view_entry_by(entry_selection)
+    when 7
+      puts "Deleting all entries..."
+      nuke_entries
+      puts "Done."
+      main_menu
     else
       system "clear"
       puts "Sorry, that is not a valid input"
@@ -55,6 +61,12 @@ class MenuController
   def delete_entry(entry)
     address_book.entries.delete(entry)
     puts "#{entry.name} has been deleted"
+  end
+
+  def nuke_entries()
+    address_book.entries.each do |entry|
+      entry.delete()
+    end
   end
 
   def edit_entry(entry)
