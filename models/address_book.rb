@@ -40,10 +40,9 @@ class AddressBook
     entries.each do |entry|
       if entry.name == name
         return entry
-      else
-        return nil
       end
     end
+    nil
   end
 
   def add_entry(name, phone_number, email)
