@@ -63,10 +63,8 @@ class MenuController
     puts "#{entry.name} has been deleted"
   end
 
-  def nuke_entries()
-    address_book.entries.each do |entry|
-      entry.delete()
-    end
+  def nuke_entries
+    address_book.entries.clear
   end
 
   def edit_entry(entry)
